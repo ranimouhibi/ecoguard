@@ -11,7 +11,8 @@ import EmployersList from "./pages/EmployersList";
 import EditProfilePage from "./pages/EditProfilePage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import { AuthContext } from "./context/AuthContext";
-
+import NotificationsPage from "./pages/NotificationsPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 function AppRoutes() {
   const { isAuthenticated, isLoading } = useContext(AuthContext);
   const location = useLocation();
@@ -26,6 +27,8 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
+         
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route
           path="/admin"
           element={
@@ -34,6 +37,8 @@ function AppRoutes() {
             </PrivateRoute>
           }
         />
+         <Route path="/notifications" element={<NotificationsPage />} />
+        
         <Route path="/employee" element={<EmployeeDashboardPage />} />
         <Route
           path="/admin/gestion-employes"
